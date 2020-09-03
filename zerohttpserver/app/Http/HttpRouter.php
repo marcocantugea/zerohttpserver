@@ -35,6 +35,11 @@ class HttpRouter{
 
     }
 
+    /**
+     * Return the router object
+     *
+     * @return void
+     */
     public function getRouter(){
         return $this->router;
     }
