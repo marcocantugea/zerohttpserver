@@ -26,7 +26,7 @@ abstract class Controller {
     /**
      * Class constructor.
      */
-    public function __construct(Request $request=null, $args=null)
+    protected function __construct(Request $request=null, $args=null)
     {
         $this->request=$request;
         $this->args=$args;
