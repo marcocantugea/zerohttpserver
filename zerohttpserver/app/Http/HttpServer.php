@@ -12,6 +12,7 @@ use Amp\Http\Server\Server;
 use Amp\Http\Server\Request;
 use Amp\Http\Server\Response;
 use Amp\Log\ConsoleFormatter;
+use Amp\Socket\Server as ServerSockets;
 use Amp\ByteStream\ResourceOutputStream;
 use Amp\Http\Server\RequestHandler\CallableRequestHandler;
 
@@ -21,8 +22,8 @@ class HttpServer{
 
         Loop::run(function () {
             $servers = [
-                Socket\listen("0.0.0.0:1337"),
-                Socket\listen("[::]:1337"),
+                ServerSockets::listen("0.0.0.0:1337"),
+                ServerSockets::listen("[::]:1337")
             ];
         
             $logHandler = new StreamHandler(new ResourceOutputStream(\STDOUT));
