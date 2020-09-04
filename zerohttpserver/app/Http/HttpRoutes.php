@@ -27,24 +27,34 @@ class HttpRoutes extends HttpRouter{
      */
     public function routes(){
 
-
+        //Example diferent status
         $this->router->addRoute('GET', '/', new CallableRequestHandler(function () {
             return new Response(Status::FORBIDDEN, ['content-type' => 'text/plain'],null);
         }));
 
+        //Example getting a url dinamic parameter
         $this->router->addRoute('GET','/product/{idproduct}',new CallableRequestHandler(function(Request $request){
             $args = $request->getAttribute(Router::class);
             return (new ProductController())->getproduct($args['idproduct']);
         }));
 
+        //Example using a controller
         $this->router->addRoute('GET','/example/product/{idproduct}',new CallableRequestHandler(function(Request $request){
             $args = $request->getAttribute(Router::class);
             return (new exampleController())->getproduct($args['idproduct']);
         }));
 
-        $this->router->addRoute('GET', '/{name}', new CallableRequestHandler(function (Request $request) {
-            $args = $request->getAttribute(Router::class);
-            return new Response(Status::OK, ['content-type' => 'text/plain'], "Hello, {$args['name']}!");
+        //example getting the raw body request
+        $this->router->addRoute('POST', '/getbody', new CallableRequestHandler(function (Request $request) {
+            
+              $inputStream = $request->getBody();
+              $buffer = "";
+  
+              while (($chunk = yield $inputStream->read()) !== null) {
+                  $buffer .= $chunk;
+              }
+  
+            return new Response(Status::OK, ['content-type' => 'application/json'], $buffer);
         }));
 
     }
