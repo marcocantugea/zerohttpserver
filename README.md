@@ -27,9 +27,6 @@ Example
    
 ```
 
-Http server with laravel zero and amphp libraries to create a REST api
-
-
 # Controllers
 
 You can use controllers for process the request. the controllers are defined in **App\Controllers**, this controllers use a base abstract class called **controller**
