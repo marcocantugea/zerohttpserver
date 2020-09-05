@@ -27,7 +27,13 @@ class HttpRoutes extends HttpRouter{
      */
     public function routes(){
 
-        //Example diferent status
+
+        //basic response
+        $this->router->addRoute('GET', '/basicresponse', new CallableRequestHandler(function () {
+            return new Response(Status::OK, ['content-type' => 'text/plain'],"Hello, world!");
+        }));
+
+        //Example response a forbiden status
         $this->router->addRoute('GET', '/', new CallableRequestHandler(function () {
             return new Response(Status::FORBIDDEN, ['content-type' => 'text/plain'],null);
         }));
