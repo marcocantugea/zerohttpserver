@@ -29,9 +29,9 @@ Example
 
 # Controllers
 
-You can use controllers for process the request. the controllers are defined in **App\Controllers**, this controllers use a base abstract class called **controller**
+You can use controllers to process the request. the controllers are defined in **App\Controllers**. These controllers, use a base abstract class called **controller**
 
-Example of controler.
+Example.
 
 ```php
 <?php
@@ -67,7 +67,7 @@ class exampleController extends Controller
     }
 }
 ```
-Defined route on the file HttpRoutes.php
+Defined route for the controller on the HttpRoutes.php file
 
 ```php
 <?php
@@ -112,4 +112,4 @@ class HttpRoutes extends HttpRouter{
 }
 ```
 
-For more details use the repository for [laravel zero](https://github.com/laravel-zero/laravel-zero) and the [AMP](https://github.com/amphp/http-server) repository
+For more details, use the repository for [laravel zero](https://github.com/laravel-zero/laravel-zero) and the [AMP http server](https://github.com/amphp/http-server) repository
