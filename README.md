@@ -11,7 +11,7 @@ This proyect combines the powerfull framework laravel-zero and amphp-httserver t
 To star the server use the command
 
 ```cmd
-php httpserver start
+php zerohttpserver start
 ```
 
 # Defining Routes
